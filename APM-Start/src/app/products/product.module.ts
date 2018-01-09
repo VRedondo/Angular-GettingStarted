@@ -8,6 +8,8 @@ import { ProductDetailComponent } from './product-detail.component';
 import { ProductGuardService } from './product-guard.service';
 import { ProductService } from './product.service';
 import { ProductRoutingModule } from './product-routing.module';
+import { ProductEditComponent } from './product-edit.component';
+import { ProductResolverService } from './product-resolver.service';
 
 
 @NgModule({
@@ -18,10 +20,12 @@ import { ProductRoutingModule } from './product-routing.module';
   declarations: [
     ProductListComponent,
     ProductDetailComponent,
+    ProductEditComponent,
   ],
   providers: [
     ProductService,
     ProductGuardService,
+    ProductResolverService,
   ]
 })
 export class ProductModule { }

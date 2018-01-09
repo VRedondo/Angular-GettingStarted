@@ -1,22 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
+import { ProductData } from './products/product-data';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { ProductModule } from './products/product.module';
 import { AppRoutingModule } from './app-routing.module';
+import { PageNotFoundComponent } from './page-not-found.component';
+import { UserModule } from './users/user.module';
+import { MessageModule } from './messages/message.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
+    HttpModule,
+    InMemoryWebApiModule.forRoot(ProductData, { delay: 1000 }),
     ProductModule,
-    AppRoutingModule,
+    UserModule,
+    MessageModule,
+    AppRoutingModule
   ],
   bootstrap: [AppComponent]
 })
